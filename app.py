@@ -15,7 +15,7 @@ def download():
     ydl_opts = {
         'format': 'best[ext=mp4]/best',
         'outtmpl': 'downloaded_video.%(ext)s',
-        'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+        'extractor_args': {'youtube': {'player_client': ['android']}},
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
