@@ -13,12 +13,12 @@ def download():
     video_url = request.form.get('url')
 
     ydl_opts = {
-        'format': 'bestaudio/best',
+        'format': 'best[ext=mp4]/best[ext=webm]/best',
+        'noplaylist': True,
         'outtmpl': 'downloaded_video.%(ext)s',
         'cookiefile': 'cookies.txt',
         'extractor_args': {'youtube': {'player_client': ['web']}},
     }
-    try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(video_url, download=True)
             filename = ydl.prepare_filename(info)
