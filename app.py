@@ -13,10 +13,10 @@ def download():
     video_url = request.form.get('url')
 
     ydl_opts = {
-        'format': 'best',
+        'format': 'b',
         'outtmpl': 'downloaded_video.%(ext)s',
         'cookiefile': 'cookies.txt',
-        # Убираем жесткие привязки к конкретным клиентам, раз куки уже авторизуют сессию
+        'extractor_args': {'youtube': {'player_client': ['android']}},
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
