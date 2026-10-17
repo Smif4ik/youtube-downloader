@@ -1,0 +1,5 @@
+cookies.txt
+.venv/
+pycache/
+*.mp4
+*.webm
